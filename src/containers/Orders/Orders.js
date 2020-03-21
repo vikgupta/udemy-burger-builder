@@ -9,9 +9,10 @@ import * as actionCreator from '../../store/actions/index';
 
 const orders = props => {
 
+    const {token, localId, onFetchOrders} = props;
     useEffect(() => {
         props.onFetchOrders(props.token, props.localId);
-    }, []);
+    }, [token, localId, onFetchOrders]);
     
     let orders = <Spinner />;
     if(!props.loading) {

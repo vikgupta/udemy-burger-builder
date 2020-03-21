@@ -45,11 +45,13 @@ const auth = props => {
         }
     });
 
+    const {onResetAuthRedirectPath, buildingBurger, authRedirectPath} = props;
+
     useEffect(() => {
-        if(!props.buildingBurger && props.authRedirectPath !== '/') {
-            props.onResetAuthRedirectPath();
+        if(!buildingBurger && authRedirectPath !== '/') {
+            onResetAuthRedirectPath();
         }
-    }, []);
+    }, [onResetAuthRedirectPath, buildingBurger, authRedirectPath]);
 
     const loginHandler = (event) => {
         event.preventDefault();
